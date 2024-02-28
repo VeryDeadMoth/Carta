@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
@@ -6,11 +7,31 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
+    //deserialization system
     public Dictionary<string, List<QuizQuestion>> allQuizQuestions;
     Deserializer deserializer = new();
     public TextAsset quizFile;
 
-    private void Awake()
+    //events
+    public delegate void QuizMode();
+    public event QuizMode OnQuizModeStarted;
+
+
+    public void Awake()
+    {
+        if (!Instance)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
+    private void Start()
     {
         if(quizFile) this.allQuizQuestions = deserializer.GetAllQuizQuestions(quizFile);
     }
