@@ -12,7 +12,7 @@ public class DrawObject : MonoBehaviour
     [SerializeField] private float chronoBeforeDisapear = 2f;
     public Mesh mesh{get;private set;}
 
-    private bool isDrawable = true;
+    private float timeDrag = 0f;
     private float timeChrono = 0f;
     private Vector3 FirstPlacement;
     private Vector3 LastMousePos;
@@ -25,18 +25,16 @@ public class DrawObject : MonoBehaviour
         {
             // mouse pressed down
             timeChrono = 0f;
+            timeDrag = 0f;
             OnMouseClicked();
         }
 
         //distanceVertices pour avoir une qualité de trait (+ => plus "quali" mais plus gourmand.)
         if (Input.GetMouseButton(0) && Vector3.Distance(GetMousePosition(),LastMousePos) > distanceVertices)
         {
+            timeDrag += Time.deltaTime * 10;
             // mouse held down
-            if(Vector3.Distance(GetMousePosition(),FirstPlacement) > lengthMax)
-            {
-                isDrawable = false;
-            }
-            if (isDrawable)
+            if(!(timeDrag > lengthMax))
             {
                 OnMouseButtonDown();
             }
@@ -72,7 +70,6 @@ public class DrawObject : MonoBehaviour
         Vector2[] uv = new Vector2[4];
         int[] triangles = new int[6];
 
-        isDrawable = true;
         FirstPlacement = GetMousePosition();
         vertices[0] = GetMousePosition();
         vertices[1] = GetMousePosition();

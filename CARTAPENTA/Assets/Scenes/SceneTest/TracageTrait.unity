@@ -787,7 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceVertices: 0.05
-  lengthMax: 6
+  lengthMax: 3
   lineThickness: 0.05
   chronoBeforeDisapear: 1
 --- !u!54 &938997618
@@ -1390,6 +1390,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 598115907}
+  - {fileID: 1564767477}
   - {fileID: 839708201}
   - {fileID: 1891637025}
-  - {fileID: 1564767477}

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneTest/TracageTrait.unity
     guid: 087e2ab396d22ae4fbdb3bf6bf7027ab
+  - enabled: 1
+    path: Assets/Scenes/Final_scene.unity
+    guid: b51cc146b57b8d34daf0d77764174c37
   m_configObjects: {}
