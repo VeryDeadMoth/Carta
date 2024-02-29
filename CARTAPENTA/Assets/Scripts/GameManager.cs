@@ -14,26 +14,29 @@ public class GameManager : MonoBehaviour
     Deserializer deserializer = new();
     public TextAsset quizFile;
 
-    //events
-    public delegate void QuizMode();
-    public event QuizMode OnQuizModeStarted;
-
-
-    public void Awake()
+    private void Awake()
     {
         if (!Instance)
         {
             Instance = this;
+            QuizHandler.OnQuizEnded += QuizEnded;
         }
         else
         {
             Destroy(this);
         }
+        
     }
 
     private void Start()
     {
         if(quizFile) this.allQuizQuestions = deserializer.GetAllQuizQuestions(quizFile);
+    }
+
+    private void QuizEnded()
+    {
+        PlayerStateManager.Instance?.SwitchState(PlayerStateManager.Instance.idleState);
+        //Handle Quest System Here
     }
 
     public void LoadNewScene(string name)

@@ -14,7 +14,14 @@ public class NPC : MonoBehaviour
     public float wordSpeed;
     public bool playerIsClose;
 
+    public delegate void InteractedWith(string name);
+    public static event InteractedWith OnDialogueEnded;
+    private bool hasBeenTalkedTo;
 
+    private void Start()
+    {
+        this.hasBeenTalkedTo = false;
+    }
 
     public void NextDialogue()
     {
@@ -25,19 +32,24 @@ public class NPC : MonoBehaviour
         }
         else
         {
-            //LAUNCH QUIZ QUEST HERE
-            PlayerStateManager player = PlayerStateManager.Instance;
-            player.SwitchState(player.idleState);
+            
             index = 0;
             dialoguePanel.SetActive(false);
+            //LAUNCH QUIZ QUEST HERE
+            OnDialogueEnded?.Invoke(this.gameObject.name);
+
+            //MOVE THIS ELSEWHERE WHEN QUIZ IS OVER
+            PlayerStateManager player = PlayerStateManager.Instance;
+            player.SwitchState(player.idleState);
+            
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasBeenTalkedTo)
         {
-
+            hasBeenTalkedTo = true;
             playerIsClose = true;
             dialoguePanel.SetActive(true);
             dialogueText.text = dialogue[0];
