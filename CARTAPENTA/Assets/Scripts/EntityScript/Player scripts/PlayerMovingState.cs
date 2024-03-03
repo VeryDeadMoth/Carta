@@ -14,6 +14,7 @@ public class PlayerMovingState : PlayerBaseState
     {
         Debug.Log("Entered State : Moving");
         //TO DO : ADD ANIMATION HERE
+        player.animator.SetTrigger("Move");
     }
 
     public override void OnCollisionEnter(PlayerStateManager player, Collision2D collision)
