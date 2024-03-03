@@ -11,6 +11,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerListeningState listeningState = new PlayerListeningState();
     public PlayerIdleState idleState = new PlayerIdleState();
 
+    public SpriteRenderer spriteRenderer;
+
     public Vector2 targetPos;
     public float idleRadius; 
 

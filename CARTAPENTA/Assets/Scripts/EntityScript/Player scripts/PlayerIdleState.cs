@@ -20,6 +20,10 @@ public class PlayerIdleState : PlayerBaseState
         if (Input.GetMouseButtonDown(0))
         {
             player.targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            //Flip player sprite
+            player.spriteRenderer.flipX = player.targetPos.x < player.transform.position.x;
+
             Debug.Log("Mouse Input -> new direction : " + player.targetPos);
             player.SwitchState(player.movingState);
             

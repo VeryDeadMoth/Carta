@@ -149,3 +149,5 @@ MonoBehaviour:
   contButton: {fileID: 0}
   wordSpeed: 0
   playerIsClose: 0
+  isSpriteFacingRight: 0
+  spriteRenderer: {fileID: 1981006981437533473}

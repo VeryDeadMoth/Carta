@@ -699,7 +699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 568.678, z: -2561.285}
   m_AnchorMin: {x: 0.43, y: 0.5}
   m_AnchorMax: {x: 0.44, y: 0.5}
-  m_AnchoredPosition: {x: 12.799719, y: 25.2}
+  m_AnchoredPosition: {x: 12.799717, y: 25.2}
   m_SizeDelta: {x: 35.299664, y: 2.3526}
   m_Pivot: {x: 0.4842678, y: 0.4229087}
 --- !u!114 &696179109
@@ -1121,6 +1121,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: isSpriteFacingRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
       propertyPath: dialogue.Array.data[0]
       value: "J\u2019ai une mission pour vous : Je vous envoie en tant que g\xE9om\xE8tre
         pour r\xE9gler une querelle."
@@ -1184,6 +1188,34 @@ PrefabInstance:
     - target: {fileID: 7532124885394777006, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196470622206137781, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196470622206137781, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196470622206137781, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 4.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196470622206137781, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 5.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196470622206137781, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196470622206137781, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 5.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196470622206137781, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
