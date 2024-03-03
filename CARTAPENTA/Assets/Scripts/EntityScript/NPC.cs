@@ -18,6 +18,9 @@ public class NPC : MonoBehaviour
     public static event InteractedWith OnDialogueEnded;
     private bool hasBeenTalkedTo;
 
+    public bool isSpriteFacingRight;
+    public SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         this.hasBeenTalkedTo = false;
@@ -49,11 +52,16 @@ public class NPC : MonoBehaviour
     {
         if (other.CompareTag("Player") && !hasBeenTalkedTo)
         {
+
             hasBeenTalkedTo = true;
             playerIsClose = true;
             dialoguePanel.SetActive(true);
             dialogueText.text = dialogue[0];
             PlayerStateManager player = other.GetComponent<PlayerStateManager>();
+
+            //Flip sprite towards player
+            this.spriteRenderer.flipX = isSpriteFacingRight ^ player.transform.position.x >= this.gameObject.transform.position.x; 
+
             player.SwitchState(player.listeningState);
         }
     }
