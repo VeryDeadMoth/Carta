@@ -9,6 +9,7 @@ public class PlayerIdleState : PlayerBaseState
         Debug.Log("Entered State : Idle");
         player.targetPos = player.transform.position;
         //TO DO : ADD ANIMATION HERE
+        player.animator.SetTrigger("Idle");
     }
 
     public override void OnCollisionEnter(PlayerStateManager player, Collision2D collision)

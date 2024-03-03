@@ -14,7 +14,9 @@ public class PlayerStateManager : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public Vector2 targetPos;
-    public float idleRadius; 
+    public float idleRadius;
+
+    public Animator animator;
 
     void Start()
     {
@@ -38,6 +40,10 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerBaseState state)
     {
+        animator.ResetTrigger("Idle");
+        animator.ResetTrigger("Listen");
+        animator.ResetTrigger("Move");
+
         currentState = state;
         state.EnterState(this);
     }
