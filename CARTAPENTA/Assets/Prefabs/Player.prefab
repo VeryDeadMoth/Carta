@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc4903ea0bc96d4e804b67584bc816c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 4436281369389344907}
   targetPos: {x: 0, y: 0}
   idleRadius: 0
 --- !u!1 &7562356316336214347

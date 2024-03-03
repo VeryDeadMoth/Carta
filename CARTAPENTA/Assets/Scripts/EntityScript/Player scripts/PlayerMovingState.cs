@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -31,6 +32,9 @@ public class PlayerMovingState : PlayerBaseState
         {
             player.targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log("Mouse Input -> new direction : " + player.targetPos);
+
+            //Flip player sprite
+            player.spriteRenderer.flipX = player.targetPos.x < player.transform.position.x;
         }
 
         //If player reaches target position (or is within its radius), return to idle
