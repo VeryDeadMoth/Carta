@@ -1,83 +1,101 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using fadeMethods;
+
 
 public class drawManager : MonoBehaviour
 {
     [SerializeField] private GameObject listGoodPlacement;
     [SerializeField] private GameObject NewMap;
-    [SerializeField] private float timeInterval = 1f;
+    [SerializeField] private GameObject LineCollider;
+    [SerializeField] private float timeInterval;
     public GameManager GameManager;
-    public bool isInPlace { get; set; } = false;
-    private float timeChrono = 0f;
+    public bool isInPlace { get; set; }
+    private bool End;
     public int numberCollider { get; set; }
+    public int percentage { get; private set; }
+    private float timeChrono;
+    public List<GameObject> ObjectChecked { get; set; }
 
+    private void Start()
+    {
+        isInPlace = false;
+        End = false;
+        timeChrono = 0f;
+        timeInterval = 1f;
+        LineCollider.GetComponent<ColliderDraw>().ColliderGoodPlace += PlacementCollided;
+        ObjectChecked = new List<GameObject>(listGoodPlacement.transform.childCount);
+    }
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButton(0) && !(GetComponent<DrawObject>().timeDrag > GetComponent<DrawObject>().lengthMax))
         {
-            OnMouseRelease();
+            LineCollider.transform.position = GetComponent<DrawObject>().GetMousePosition();
         }
 
-        if (isInPlace)
+        if (End)
         {
-
+            percentage = 100;
+            LineCollider.SetActive(false);
             if (NewMap != null)
             {
                 this.GetComponent<DrawObject>().enabled = false;
 
+                FadeMethods FM = new FadeMethods();
+
+                // Fade away
                 Color newMapColor = NewMap.GetComponent<Image>().color;
-                NewMap.GetComponent<Image>().color = Fade(newMapColor, false);
+                NewMap.GetComponent<Image>().color = FM.Fade(newMapColor, false,timeChrono);
 
                 Color newLineColor = this.GetComponent<MeshRenderer>().material.color;
-                this.GetComponent<Renderer>().material.color = Fade(newMapColor, true);
+                this.GetComponent<Renderer>().material.color = FM.Fade(newLineColor, true,timeChrono);
 
+                timeChrono = FM.ChronoUp(timeChrono,timeInterval);
                 if (newMapColor.a >= 1)
                 {
+                    timeChrono = 0;
                     numberCollider = 0;
                     GameManager.LoadNewScene("Final_scene");
-                    
+
                 }
             }
             else
             {
                 numberCollider = 0;
                 GameManager.LoadNewScene("Final_scene");
-                
+
             }
         }
+        if (Input.GetMouseButtonUp(0))
+        {
+            percentage = numberCollider*100/ listGoodPlacement.transform.childCount;
+            ObjectChecked.Clear();
+            if(isInPlace)
+            {
+                End = true;
+            }
+        }
+    }
+
+
+    public void PlacementCollided(object sender, EventArgsCollider e)
+    {
+        bool isExistant = false;
+        
+        foreach(GameObject go in ObjectChecked)
+        {
+            if(GameObject.ReferenceEquals(go, e.GO_ColliderLine))
+            {
+                isExistant = true;
+            }
+        }
+        if (!isExistant)
+        {
+            numberCollider++;
+            ObjectChecked.Add(e.GO_ColliderLine);
+        }
         isInPlace = numberCollider == listGoodPlacement.transform.childCount;
-
-        if (!isInPlace)
-        {
-            
-            numberCollider = 0;
-        }
-    }
-
-    public void OnMouseRelease()
-    {
-        MeshCollider Mesh_C = GetComponent<MeshCollider>();
-        ColliderDraw Collider_D = GetComponent<ColliderDraw>();
-        Mesh_C.sharedMesh = null;
-        if (GetComponent<MeshFilter>().mesh.vertices.Length > 4)
-        {
-            Mesh_C.sharedMesh = GetComponent<MeshFilter>().mesh;
-        }
-    }
-
-    public Color Fade(Color co, bool fadeway)
-    {
-        if (!fadeway)
-        {
-            co.a = timeChrono; 
-        }
-        else
-        {
-            co.a = 1 - timeChrono;
-        }
-        timeChrono += Time.deltaTime * timeInterval;
-
-        return co;
     }
 }
