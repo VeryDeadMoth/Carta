@@ -10,7 +10,7 @@ public class Window_QuestPointer : MonoBehaviour {
     private RectTransform pointerRectTransform;
 
     private void Awake() {
-        targetPosition = GameObject.Find("NPC").transform.position; // TODO: find using gamemanager which quest we need!!!
+        targetPosition = GameObject.Find("NPC"+GameManager.Instance.QuestProgress).transform.position; // TODO: find using gamemanager which quest we need!!!
         pointerRectTransform = transform.Find("Pointer").GetComponent<RectTransform>();
     }
 
