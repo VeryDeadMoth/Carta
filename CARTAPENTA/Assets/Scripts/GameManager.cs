@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     Deserializer deserializer = new();
     public TextAsset quizFile;
 
+    public int QuestProgress { get; private set; } //helps check which NPC is next
+
     private void Awake()
     {
         if (!Instance)
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        QuestProgress = 0;
         if(quizFile) this.allQuizQuestions = deserializer.GetAllQuizQuestions(quizFile);
     }
 
@@ -37,6 +40,8 @@ public class GameManager : MonoBehaviour
     {
         PlayerStateManager.Instance?.SwitchState(PlayerStateManager.Instance.idleState);
         //Handle Quest System Here
+        QuestProgress++;
+        //Check if questprogress == max quest value and launch draw line scene
     }
 
     public void LoadNewScene(string name)

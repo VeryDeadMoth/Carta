@@ -185,6 +185,7 @@ MonoBehaviour:
   playerIsClose: 0
   isSpriteFacingRight: 0
   spriteRenderer: {fileID: 1981006981437533473}
+  animator: {fileID: 3228350937550176268}
 --- !u!114 &666783860929905102
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,6 +21,8 @@ public class NPC : MonoBehaviour
     public bool isSpriteFacingRight;
     public SpriteRenderer spriteRenderer;
 
+    public Animator animator;
+
     private void Start()
     {
         this.hasBeenTalkedTo = false;
@@ -40,6 +42,9 @@ public class NPC : MonoBehaviour
             dialoguePanel.SetActive(false);
             //LAUNCH QUIZ QUEST HERE
             OnDialogueEnded?.Invoke(this.gameObject.name);
+            //return to idle
+            animator.ResetTrigger("Idle");
+            animator.SetTrigger("Idle");
 
             //MOVE THIS ELSEWHERE WHEN QUIZ IS OVER
             PlayerStateManager player = PlayerStateManager.Instance;
@@ -63,13 +68,18 @@ public class NPC : MonoBehaviour
             this.spriteRenderer.flipX = isSpriteFacingRight ^ player.transform.position.x >= this.gameObject.transform.position.x; 
 
             player.SwitchState(player.listeningState);
+
+            animator.ResetTrigger("Talk");
+            animator.SetTrigger("Talk");
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+
         if (other.CompareTag("Player"))
         {
+            
             playerIsClose = false;
         }
     }

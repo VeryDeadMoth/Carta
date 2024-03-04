@@ -185,6 +185,7 @@ MonoBehaviour:
   playerIsClose: 0
   isSpriteFacingRight: 0
   spriteRenderer: {fileID: 1981006981437533473}
+  animator: {fileID: 8043977122802573701}
 --- !u!95 &8043977122802573701
 Animator:
   serializedVersion: 5
