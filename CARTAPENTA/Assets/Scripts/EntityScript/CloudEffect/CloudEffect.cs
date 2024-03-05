@@ -17,13 +17,17 @@ public class CloudEffect : MonoBehaviour
         {
             if (ColliderRestriction != null)
             {
-                if (ColliderRestriction.transform.childCount > numZone)
+                if (ColliderRestriction.transform.childCount > numZone && ColliderRestriction.transform.GetChild(numZone).gameObject.activeSelf)
                 {
                     GameObject CloudsGroup = ColliderRestriction.transform.GetChild(numZone).gameObject;
                     
                     if (!fadeEffects.EndTransitionFadeGroup(CloudsGroup))
                     {
                         fadeEffects.FadeOutAllObject(CloudsGroup, 0);
+                    }
+                    else
+                    {
+                        CloudsGroup.SetActive(false);
                     }
                 }
             }
