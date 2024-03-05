@@ -32,6 +32,7 @@ public class PlayerMovingState : PlayerBaseState
         if(Input.GetMouseButtonDown(0))
         {
             player.targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
             Debug.Log("Mouse Input -> new direction : " + player.targetPos);
 
             //Flip player sprite
