@@ -15,14 +15,14 @@ public class CloudEffect : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && numZone != -1 && ColliderRestriction != null)
+/*        if (Input.GetMouseButtonDown(0) && numZone != -1 && ColliderRestriction != null)
         {
             if (ColliderRestriction.transform.childCount > numZone && ColliderRestriction.transform.GetChild(numZone).gameObject.activeSelf)
             {
                 StartCoroutine(FadeEffect(numZone));
             }
             numZone++;
-        }
+        }*/
     }
 
 
