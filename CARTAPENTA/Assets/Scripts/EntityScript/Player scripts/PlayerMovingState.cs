@@ -36,6 +36,14 @@ public class PlayerMovingState : PlayerBaseState
 
             //Flip player sprite
             player.spriteRenderer.flipX = player.targetPos.x < player.transform.position.x;
+            if(player.gameObject.GetComponent<OutOfBox>() != null)
+            {
+                if (!player.gameObject.GetComponent<OutOfBox>().IsPositionValid(player.targetPos))
+                {
+                    player.targetPos = player.transform.position;
+                    
+                }
+            }
         }
 
         //If player reaches target position (or is within its radius), return to idle

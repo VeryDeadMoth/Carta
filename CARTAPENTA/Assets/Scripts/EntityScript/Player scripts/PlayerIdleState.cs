@@ -24,7 +24,14 @@ public class PlayerIdleState : PlayerBaseState
 
             //Flip player sprite
             player.spriteRenderer.flipX = player.targetPos.x < player.transform.position.x;
+            if (player.gameObject.GetComponent<OutOfBox>() != null)
+            {
+                if (!player.gameObject.GetComponent<OutOfBox>().IsPositionValid(player.targetPos))
+                {
+                    player.targetPos = player.transform.position;
 
+                }
+            }
             Debug.Log("Mouse Input -> new direction : " + player.targetPos);
             player.SwitchState(player.movingState);
             

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Effects;
+using System.Collections;
 
 public class CloudEffect : MonoBehaviour
 {
@@ -11,27 +12,64 @@ public class CloudEffect : MonoBehaviour
     {
         fadeEffects = new fadeEffects();
     }
+
     private void Update()
     {
-        if (numZone != -1)
+        if (Input.GetMouseButtonDown(0) && numZone != -1 && ColliderRestriction != null)
         {
-            if (ColliderRestriction != null)
+            if (ColliderRestriction.transform.childCount > numZone && ColliderRestriction.transform.GetChild(numZone).gameObject.activeSelf)
             {
-                if (ColliderRestriction.transform.childCount > numZone && ColliderRestriction.transform.GetChild(numZone).gameObject.activeSelf)
-                {
-                    GameObject CloudsGroup = ColliderRestriction.transform.GetChild(numZone).gameObject;
-                    
-                    if (!fadeEffects.EndTransitionFadeGroup(CloudsGroup))
-                    {
-                        fadeEffects.FadeOutAllObject(CloudsGroup, 0);
-                    }
-                    else
-                    {
-                        CloudsGroup.SetActive(false);
-                    }
-                }
+                StartCoroutine(FadeEffect(numZone));
             }
+            numZone++;
         }
+    }
+
+
+    public IEnumerator FadeEffect(int numeroZone)
+    {
+        GameObject CloudsGroup = ColliderRestriction.transform.GetChild(numeroZone).gameObject;
+
+        while (!fadeEffects.EndTransitionFadeGroup(CloudsGroup))
+        {
+            fadeEffects.FadeOutAllObject(CloudsGroup);
+            yield return null;
+        }
+        CloudsGroup.SetActive(false); 
+    }
+    public IEnumerator FadeEffect(int numeroZone, float SpeedFade)
+    {
+        GameObject CloudsGroup = ColliderRestriction.transform.GetChild(numeroZone).gameObject;
+
+        while (!fadeEffects.EndTransitionFadeGroup(CloudsGroup))
+        {
+            fadeEffects.FadeOutAllObject(CloudsGroup, SpeedFade);
+            yield return null;
+        }
+        CloudsGroup.SetActive(false);
+    }
+
+    public IEnumerator SlideEffect(int numeroZone)
+    {
+        GameObject CloudsGroup = ColliderRestriction.transform.GetChild(numeroZone).gameObject;
+
+        while (!fadeEffects.EndTransitionDisperse(CloudsGroup))
+        {
+            fadeEffects.Disperse(CloudsGroup, 0.01f);
+            yield return null;
+        }
+        CloudsGroup.SetActive(false);
+    }
+    public IEnumerator SlideEffect(int numeroZone, float SpeedDisperse)
+    {
+        GameObject CloudsGroup = ColliderRestriction.transform.GetChild(numeroZone).gameObject;
+
+        while (!fadeEffects.EndTransitionDisperse(CloudsGroup))
+        {
+            fadeEffects.Disperse(CloudsGroup, SpeedDisperse);
+            yield return null;
+        }
+        CloudsGroup.SetActive(false);
     }
 
 }
