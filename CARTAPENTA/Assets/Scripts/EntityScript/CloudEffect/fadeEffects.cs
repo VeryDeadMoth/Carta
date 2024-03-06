@@ -160,7 +160,7 @@ namespace Effects
 
                 if (!EndTransitionUnit(cloudUnit))
                 {
-                    speedDisperse = Random.Range(0.0001f, Time.deltaTime + 0.05f);
+                    speedDisperse = Random.Range(0.001f, Time.deltaTime + 0.5f);
 
                     if ((cloudUnit.transform.position - parentOfCloud.transform.localPosition).x > 0)
                     {
@@ -172,7 +172,7 @@ namespace Effects
             }
         }
 
-        public void Disperse(GameObject parentOfCloud,float constantSpeed)
+        public void Disperse(GameObject parentOfCloud,float speedDisperse)
         {
             for (int i = 0; i < parentOfCloud.transform.childCount; i++)
             {
@@ -181,10 +181,10 @@ namespace Effects
                 {
                     if ((cloudUnit.transform.position - parentOfCloud.transform.localPosition).x > 0)
                     {
-                        cloudUnit.transform.Translate(Vector2.right * constantSpeed);
+                        cloudUnit.transform.Translate(Vector2.right * speedDisperse);
                     }
 
-                    else { cloudUnit.transform.Translate(Vector2.left * constantSpeed); }
+                    else { cloudUnit.transform.Translate(Vector2.left * speedDisperse); }
                 }
             }
         }
