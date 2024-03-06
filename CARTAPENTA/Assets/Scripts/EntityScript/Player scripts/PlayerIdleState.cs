@@ -20,6 +20,14 @@ public class PlayerIdleState : PlayerBaseState
         if (Input.GetMouseButtonDown(0))
         {
             player.targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (player.gameObject.GetComponent<OutOfBox>() != null)
+            {
+                if (!player.gameObject.GetComponent<OutOfBox>().IsPositionValid(player.targetPos))
+                {
+                    player.targetPos = player.transform.position;
+
+                }
+            }
             Debug.Log("Mouse Input -> new direction : " + player.targetPos);
             player.SwitchState(player.movingState);
             

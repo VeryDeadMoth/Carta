@@ -9,6 +9,12 @@ namespace Effects
 
         #region fade transition effect
 
+        // ---------------------- //
+        // BOOLEAN METHODS //
+        // ---------------------- //
+
+
+        // check if one object finished his transition
         public bool EndTransitionFadeUnit(Color colToVerify)
         {
             if (colToVerify.a < 0) return true;
@@ -16,6 +22,7 @@ namespace Effects
             return false;
         }
 
+        // check if all object of a parent finished their transition
         public bool EndTransitionFadeGroup(GameObject parentOfCloud)
         {
             bool result = true;
@@ -23,29 +30,48 @@ namespace Effects
             {
                 for (int i = 0; i < parentOfCloud.transform.childCount; i++)
                 {
-                    result = result && EndTransitionFadeUnit(parentOfCloud.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().color);
+                    result = result && EndTransitionFadeUnit(parentOfCloud.transform.GetChild(i).gameObject.GetComponent<Renderer>().material.color);
                 }
             }
             return result;
         }
 
+        // ---------------------- //
+        // BOOLEAN METHODS //
+        // ---------------------- //
 
+
+
+
+
+
+        // Fade out all object of the parent cloudsParent
         public void FadeOutAllObject(GameObject cloudsParent, float fadeSpeed){
             for (int i = 0; i<cloudsParent.transform.childCount; i++)
             {
 
                 // cannot use CP_Col = Fadeout(Cp_Col)
                 // dunno why
-                Color CP_Col = cloudsParent.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().color;
+                Color CP_Col = cloudsParent.transform.GetChild(i).gameObject.GetComponent<Renderer>().material.color;
                 if (!EndTransitionFadeUnit(CP_Col))
                 {
-                    if (fadeSpeed == 0) {
-                        cloudsParent.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().color = FadeOut(CP_Col);
-                    }
-                    else {
-                        cloudsParent.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().color = FadeOut(CP_Col, fadeSpeed);
-                    }
+                    cloudsParent.transform.GetChild(i).gameObject.GetComponent<Renderer>().material.color = FadeOut(CP_Col, fadeSpeed);
+                }
+            }
+        }
 
+        // Fade out all object of the parent cloudsParent, with a random speed
+        public void FadeOutAllObject(GameObject cloudsParent)
+        {
+            for (int i = 0; i < cloudsParent.transform.childCount; i++)
+            {
+
+                // cannot use CP_Col = Fadeout(Cp_Col)
+                // dunno why
+                Color CP_Col = cloudsParent.transform.GetChild(i).gameObject.GetComponent<Renderer>().material.color;
+                if (!EndTransitionFadeUnit(CP_Col))
+                {
+                    cloudsParent.transform.GetChild(i).gameObject.GetComponent<Renderer>().material.color = FadeOut(CP_Col);
                 }
             }
         }
@@ -53,8 +79,7 @@ namespace Effects
         public Color FadeOut(Color objectToFade)
         {
             Color OTF_Color = objectToFade;
-            OTF_Color.a -= Random.Range(0.001f,Time.deltaTime + 0.05f);
-
+            OTF_Color.a -= Random.Range(0.01f,Time.deltaTime + 0.01f);
             return OTF_Color;
         }
 
@@ -84,6 +109,13 @@ namespace Effects
         #endregion
 
         #region cloud Disperse effect
+
+        // ---------------------- //
+        // BOOLEAN METHODS //
+        // ---------------------- //
+
+
+        // check if transition of one object is finished
         // if cloud in parent range, then transition isn't finished
         public bool EndTransitionUnit(GameObject cloudUnit)
         {
@@ -94,6 +126,7 @@ namespace Effects
             return true;
         }
 
+        // check if transition of all object are finished
         // if all clouds in parent range, then transition isn't finished (true if finished)
         public bool EndTransitionDisperse(GameObject parentOfCloud)
         {
@@ -107,6 +140,15 @@ namespace Effects
             }
             return result;
         }
+
+        // ---------------------- //
+        // BOOLEAN METHODS //
+        // ---------------------- //
+
+
+
+
+
 
         public void Disperse(GameObject parentOfCloud)
         {
