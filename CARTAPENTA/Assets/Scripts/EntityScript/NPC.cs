@@ -19,6 +19,8 @@ public class NPC : MonoBehaviour
     public Image ProfilImage;
     public GameObject contButton;
 
+    public GameObject checkMark;
+
     public bool playerIsClose;
 
     public bool playerSpeaking = false; // Public flag for determining who speaks first
@@ -140,6 +142,10 @@ public class NPC : MonoBehaviour
         currentNPCSequenceIndex = 0;
         currentPlayerSequenceIndex = 0;
         currentDialogueIndex = 0;
+        
+        if (checkMark != null)
+            checkMark.SetActive(true);
+        
         // playerSpeaking!!!!!
         // TODO: When dialogue ends !!!!!!!
     }
