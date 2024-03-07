@@ -70,12 +70,13 @@ public class CloudEffect : MonoBehaviour
     {
         GameObject CloudsGroup = ColliderRestriction.transform.GetChild(numeroZone).gameObject;
 
+        StartCoroutine(FadeEffect(numeroZone));
         while (!fadeEffects.EndTransitionDisperse(CloudsGroup))
         {
             fadeEffects.Disperse(CloudsGroup, 0.01f);
             yield return null;
         }
-        StartCoroutine(FadeEffect(numeroZone));
+        
     }
     public IEnumerator SlideEffect(int numeroZone, float SpeedDisperse)
     {
