@@ -224,8 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24ef0c094b64e948ac0a4914031d196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColliderRestriction: {fileID: 0}
-  MapLimit: {fileID: 0}
+  ColliderRestriction: {fileID: 1803188484}
+  MapLimit: {fileID: 177461848}
 --- !u!1 &152107065
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2304,10 @@ PrefabInstance:
     - target: {fileID: 1021882241871074451, guid: 12caf9795f0d26d4ca0e9ae9917c6d7e, type: 3}
       propertyPath: m_Name
       value: Animated Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436281369389344907, guid: 12caf9795f0d26d4ca0e9ae9917c6d7e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7989789527099099026, guid: 12caf9795f0d26d4ca0e9ae9917c6d7e, type: 3}
       propertyPath: m_LocalPosition.x
