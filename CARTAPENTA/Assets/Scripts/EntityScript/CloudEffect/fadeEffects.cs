@@ -119,9 +119,11 @@ namespace Effects
         // if cloud in parent range, then transition isn't finished
         public bool EndTransitionUnit(GameObject cloudUnit)
         {
-            if (cloudUnit.GetComponentInParent<Collider2D>().bounds.Contains(cloudUnit.transform.position))
-            {
-                return false;
+            if (cloudUnit.GetComponentInParent<Collider2D>() != null) {
+                if (cloudUnit.GetComponentInParent<Collider2D>().bounds.Contains(cloudUnit.transform.position))
+                {
+                    return false;
+                }
             }
             return true;
         }
