@@ -3791,7 +3791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b8aba455040b24f8d128b66b984e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColliderRestriction: {fileID: 0}
+  ColliderRestriction: {fileID: 1803188484}
 --- !u!1 &1858869040
 GameObject:
   m_ObjectHideFlags: 0
