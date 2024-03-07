@@ -146,6 +146,10 @@ MonoBehaviour:
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
   dialogue: []
+  NPCName: {fileID: 0}
+  npcName: 
+  NPCImage: {fileID: 0}
+  npcImage: {fileID: 0}
   contButton: {fileID: 0}
   wordSpeed: 0
   playerIsClose: 0
