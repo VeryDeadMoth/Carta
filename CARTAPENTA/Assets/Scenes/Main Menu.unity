@@ -3316,7 +3316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Son
+  m_text: Musique
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 839c7772d5fee4cc6b458b4d61392fc8, type: 2}
   m_sharedMaterial: {fileID: -8183782969093464592, guid: 839c7772d5fee4cc6b458b4d61392fc8, type: 2}
