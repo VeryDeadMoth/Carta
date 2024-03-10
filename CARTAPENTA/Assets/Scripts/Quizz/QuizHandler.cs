@@ -8,7 +8,7 @@ using System.Globalization;
 
 public class QuizHandler : MonoBehaviour
 {
-    List<string> baseTextList = new List<string> { "J'en déduis que...","Hm... Je ne suis pas sure...","Hm... Peut-être pas...","Hm... Peut-être autre chose...?"};
+    List<string> baseTextList = new List<string> { "J'en deduis que...","Hm... Je ne suis pas sure...","Hm... Peut-etre pas...","Hm... Peut-etre autre chose...?"};
     [SerializeField]
     GameObject panel;
     [SerializeField]

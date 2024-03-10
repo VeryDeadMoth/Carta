@@ -126,8 +126,10 @@ public class NPC : MonoBehaviour
             {
                 // Invoke the event
                 OnDialogueEnded?.Invoke(gameObject.name);
-                PlayerStateManager player = PlayerStateManager.Instance;
-                player.SwitchState(player.idleState);
+                animator.ResetTrigger("Idle");
+                animator.SetTrigger("Idle");
+                //PlayerStateManager player = PlayerStateManager.Instance;
+                //player.SwitchState(player.idleState);
                 dialoguePanel.SetActive(false);
             }
             else
@@ -158,8 +160,10 @@ public class NPC : MonoBehaviour
             {
                 // Invoke the event
                 OnDialogueEnded?.Invoke(gameObject.name);
-                PlayerStateManager player = PlayerStateManager.Instance;
-                player.SwitchState(player.idleState);
+                //PlayerStateManager player = PlayerStateManager.Instance;
+                //player.SwitchState(player.idleState);
+                animator.ResetTrigger("Idle");
+                animator.SetTrigger("Idle");
                 dialoguePanel.SetActive(false);
             }
             else
