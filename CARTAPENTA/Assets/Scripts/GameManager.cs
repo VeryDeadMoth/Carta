@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public int QuestProgress { get; private set; } //helps check which NPC is next
 
+    SaveToFile saveSystem = new(); 
+
     private void Awake()
     {
         if (!Instance)
