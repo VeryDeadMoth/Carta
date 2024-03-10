@@ -1,10 +1,22 @@
+using System;
 using UnityEngine;
 
 public class ColliderDraw : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collision)
+    public event EventHandler<EventArgsCollider> ColliderGoodPlace;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GetComponent<drawManager>().numberCollider++;
+        ColliderGoodPlace?.Invoke(this, new EventArgsCollider(collision.gameObject));
     }
 
+
+}
+
+public class EventArgsCollider : EventArgs
+{
+    public GameObject GO_ColliderLine;
+    public EventArgsCollider(GameObject go)
+    {
+        this.GO_ColliderLine = go;
+    }
 }

@@ -9,6 +9,7 @@ public class PlayerListeningState : PlayerBaseState
     {
         Debug.Log("Entered State : Listening");
         player.targetPos = player.transform.position;
+        player.animator.SetTrigger("Listen");
     }
 
     public override void OnCollisionEnter(PlayerStateManager player, Collision2D collision)

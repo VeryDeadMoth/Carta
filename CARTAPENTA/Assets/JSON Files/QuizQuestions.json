@@ -1,0 +1,22 @@
+{
+    "NPC1":[
+        {"text":"La croix Crozilha, l’église Saint-Genieys et le hameau de la Vène appartiennent au territoire de Puygouzon.","isCorrectAnswer":true},
+        {"text":"La croix Crozilha, l’église Saint-Genieys et le hameau de la Vène appartiennent au territoire d’Albi.","isCorrectAnswer":false},
+        {"text":"La croix Crozilha et le hameau de la Vène n’appartiennent ni à Albi ni à Puygouzon.","isCorrectAnswer":false}
+    ],
+    "NPC2":[
+        {"text":"Le puy de Ranteil et la fontaine de Balh Caudieyra appartiennent aux terres de Puygouzon.","isCorrectAnswer":false},
+        {"text":"La fontaine de Balh Caudieyra est une source d’eau pour Albi.","isCorrectAnswer":true},
+        {"text":"La fontaine de Balh Caudieyra n'appartient à aucune des deux seigneuries.","isCorrectAnswer":false}
+    ],
+    "NPC3":[
+        {"text":"Ce pont mène vers Castres.","isCorrectAnswer":false},
+        {"text":"Ce pont mène vers Puygouzon. ","isCorrectAnswer":false},
+        {"text":"Ce pont mène vers la cité épiscopale d’Albi.","isCorrectAnswer":true}
+    ],
+    "NPC4":[
+        {"text":"Le territoire de Puygouzon s'arrête au pré d’en garda et au puy de Ranteil.","isCorrectAnswer":true},
+        {"text":"Le territoire de Puygouzon s'arrête au pont de Séoux.","isCorrectAnswer":false},
+        {"text":"La fontaine de Balh Caudieyra appartient au territoire de Puygouzon.","isCorrectAnswer":false}
+    ]
+}

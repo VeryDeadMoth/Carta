@@ -1,3 +1,4 @@
+using fadeMethods;
 using System;
 using Unity.VisualScripting;
 using UnityEditorInternal;
@@ -7,22 +8,31 @@ using UnityEngine;
 public class DrawObject : MonoBehaviour
 {
     [SerializeField] private float distanceVertices = .1f;
-    [SerializeField] private float lengthMax = 10f;
     [SerializeField] private float lineThickness = 1f;
     [SerializeField] private float chronoBeforeDisapear = 2f;
+
+    public float lengthMax = 10f;
     public Mesh mesh{get;private set;}
 
-    private float timeDrag = 0f;
+    public float timeDrag = 0f;
     private float timeChrono = 0f;
-    private Vector3 FirstPlacement;
+
     private Vector3 LastMousePos;
     private Vector3 VectorMovementPast;
+    private FadeMethods FM;
+    private Color saveColorBase;
+    private void Start()
+    {
+        FM = new FadeMethods();
+        saveColorBase = this.GetComponent<MeshRenderer>().material.color;
+    }
 
     private void Update()
     {
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
+            GetComponent<drawManager>().numberCollider = 0;
             // mouse pressed down
             timeChrono = 0f;
             timeDrag = 0f;
@@ -32,7 +42,7 @@ public class DrawObject : MonoBehaviour
         //distanceVertices pour avoir une qualité de trait (+ => plus "quali" mais plus gourmand.)
         if (Input.GetMouseButton(0) && Vector3.Distance(GetMousePosition(),LastMousePos) > distanceVertices)
         {
-            timeDrag += Time.deltaTime * 10;
+            timeDrag = FM.ChronoUp(timeDrag, 10);
             // mouse held down
             if(!(timeDrag > lengthMax))
             {
@@ -43,16 +53,26 @@ public class DrawObject : MonoBehaviour
         //lance un chrono avant de faire disparaire le trait
         if(Input.GetMouseButtonUp(0))
         {
-            timeChrono += Time.deltaTime;
+            timeChrono = FM.ChronoUp(timeChrono, 1);
         }
 
         if(timeChrono > 0f)
         {
-            timeChrono += Time.deltaTime;
-            if(timeChrono >= chronoBeforeDisapear) {
+            timeChrono = FM.ChronoUp(timeChrono, 1);
+
+            if(timeChrono >= chronoBeforeDisapear * 0.5)
+            {
+                Color newLineColor = this.GetComponent<MeshRenderer>().material.color;
+                this.GetComponent<Renderer>().material.color = new Color(1,0,0);
+            }
+
+            if (timeChrono >= chronoBeforeDisapear) {
                 if (!GetComponent<drawManager>().isInPlace)
                 {
+                    Color newLineColor = this.GetComponent<MeshRenderer>().material.color;
+                    this.GetComponent<Renderer>().material.color = saveColorBase;
                     GetComponent<MeshFilter>().mesh.Clear();
+                    
                 }
                 timeChrono = 0f;
             }
@@ -70,7 +90,6 @@ public class DrawObject : MonoBehaviour
         Vector2[] uv = new Vector2[4];
         int[] triangles = new int[6];
 
-        FirstPlacement = GetMousePosition();
         vertices[0] = GetMousePosition();
         vertices[1] = GetMousePosition();
         vertices[2] = GetMousePosition();
