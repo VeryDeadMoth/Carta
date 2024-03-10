@@ -163,15 +163,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: BRAVO!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 839c7772d5fee4cc6b458b4d61392fc8, type: 2}
+  m_sharedMaterial: {fileID: -8183782969093464592, guid: 839c7772d5fee4cc6b458b4d61392fc8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278321758
-  m_fontColor: {r: 0.3679245, g: 0.009255934, b: 0.009255934, a: 1}
+    rgba: 4278986569
+  m_fontColor: {r: 0.28627452, g: 0.15294118, b: 0.047058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ce serious game, \"Carta del Passat\", m\xEAle fiction et r\xE9alit\xE9
+  m_text: "Ce serious game, \"Carta del Passat\", allie fiction et r\xE9alit\xE9
     en pr\xE9sentant un sc\xE9nario fictif bas\xE9 sur le XIVe si\xE8cle. Ce jeu
     alt\xE8re des \xE9l\xE9ments historiques mais s\u2019inspire du vrai contexte.
     \xC0 savoir, l'\xE9v\xEAque d'Albi et le seigneur de Puygouzon sont en litige
@@ -436,8 +436,8 @@ MonoBehaviour:
     une repr\xE9sentation imag\xE9e des environs de Puygouzon et d'Albi ainsi que
     des lieux importants de la r\xE9gion \xE0 cette \xE9poque."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 839c7772d5fee4cc6b458b4d61392fc8, type: 2}
+  m_sharedMaterial: {fileID: -8183782969093464592, guid: 839c7772d5fee4cc6b458b4d61392fc8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1104363642
@@ -930,9 +930,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Voici la vraie carte : carta Pentha et Vehuta.'
+  m_text: 'Voici la vraie carte : Carta Pentha et Vehuta.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 839c7772d5fee4cc6b458b4d61392fc8, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -996,7 +996,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1560320627
