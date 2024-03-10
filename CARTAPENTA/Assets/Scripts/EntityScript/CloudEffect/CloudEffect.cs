@@ -30,9 +30,9 @@ public class CloudEffect : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void RemoveCloud()
     {
-        if (Input.GetKeyDown("q") && numZone != -1 && ColliderRestriction != null)
+        if ( numZone != -1 && ColliderRestriction != null)
         {
             if (ColliderRestriction.transform.childCount > numZone && ColliderRestriction.transform.GetChild(numZone).gameObject.activeSelf)
             {

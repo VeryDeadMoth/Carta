@@ -17,6 +17,8 @@ public class QuizHandler : MonoBehaviour
 
     string whichNPC; //set from event
 
+    [SerializeField] private CloudEffect cloudEffect;
+
     public delegate void QuizEvent();
     public static event QuizEvent OnQuizEnded;
 
@@ -50,8 +52,6 @@ public class QuizHandler : MonoBehaviour
     public void StartQuizMode(string npc)
     {
         this.panel.SetActive(true);
-        PlayerStateManager player = PlayerStateManager.Instance;
-        player.SwitchState(player.listeningState);
         this.whichNPC = npc;
         print(this.textPanel == null);
         this.textPanel.GetComponent<TextMeshProUGUI>().text = baseTextList[0];
@@ -103,6 +103,11 @@ public class QuizHandler : MonoBehaviour
             checkMark.SetActive(true);
         //get player out of locked mode here. (out of listening state through event)
         OnQuizEnded?.Invoke();
+
+        if (cloudEffect != null)
+        {
+            cloudEffect.RemoveCloud();
+        }
     }
 
 }
