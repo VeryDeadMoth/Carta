@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -40,11 +40,6 @@ public class NPC : MonoBehaviour
     public string PlayerName;
     public DialogueSequence[] playerSequences;
 
-// xochil's code
-    public delegate void InteractedWith(string name);
-    public static event InteractedWith OnDialogueEnded;
-    private bool hasBeenTalkedTo;
-
     public bool isSpriteFacingRight;
     public SpriteRenderer spriteRenderer;
 
@@ -53,25 +48,28 @@ public class NPC : MonoBehaviour
     private void Start()
     {
         this.hasBeenTalkedTo = false;
+        // Subscribe to the event
+        OnDialogueEnded += OnDialogueEndHandler;
     }
-    //
 
-    public void NextDialogue()
+    private void OnDialogueEndHandler(string name)
     {
-        index++;
-        if (dialogue.Length > index)
+        // Check if the event is for this NPC
+        if (name == gameObject.name)
         {
-            dialogueText.text = dialogue[index];
-        }
-        else
-        {
-            //LAUNCH QUIZ QUEST HERE
-            PlayerStateManager player = PlayerStateManager.Instance;
-            player.SwitchState(player.idleState);
-            index = 0;
-            dialoguePanel.SetActive(false);
+            EndDialogue();
         }
     }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from the event
+        OnDialogueEnded -= OnDialogueEndHandler;
+    }
+
+    public delegate void InteractedWith(string name);
+    public static event InteractedWith OnDialogueEnded;
+    private bool hasBeenTalkedTo;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -83,7 +81,7 @@ public class NPC : MonoBehaviour
             PlayerStateManager player = other.GetComponent<PlayerStateManager>();
 
             //Flip sprite towards player
-            this.spriteRenderer.flipX = isSpriteFacingRight ^ player.transform.position.x >= this.gameObject.transform.position.x; 
+            this.spriteRenderer.flipX = isSpriteFacingRight ^ player.transform.position.x >= this.gameObject.transform.position.x;
 
             player.SwitchState(player.listeningState);
             StartDialogue();
@@ -101,7 +99,7 @@ public class NPC : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            
+
             playerIsClose = false;
         }
     }
@@ -125,7 +123,8 @@ public class NPC : MonoBehaviour
             // Display NPC dialogues
             if (currentNPCSequenceIndex >= npcSequences.Length && currentPlayerSequenceIndex >= playerSequences.Length)
             {
-                EndDialogue();
+                // Invoke the event
+                OnDialogueEnded?.Invoke(gameObject.name);
                 PlayerStateManager player = PlayerStateManager.Instance;
                 player.SwitchState(player.idleState);
                 dialoguePanel.SetActive(false);
@@ -156,7 +155,8 @@ public class NPC : MonoBehaviour
             // Display player dialogues
             if (currentNPCSequenceIndex >= npcSequences.Length && currentPlayerSequenceIndex >= playerSequences.Length)
             {
-                EndDialogue();
+                // Invoke the event
+                OnDialogueEnded?.Invoke(gameObject.name);
                 PlayerStateManager player = PlayerStateManager.Instance;
                 player.SwitchState(player.idleState);
                 dialoguePanel.SetActive(false);
@@ -185,11 +185,17 @@ public class NPC : MonoBehaviour
         currentNPCSequenceIndex = 0;
         currentPlayerSequenceIndex = 0;
         currentDialogueIndex = 0;
-        
-        if (checkMark != null)
-            checkMark.SetActive(true);
-        
-        // playerSpeaking!!!!!
-        // TODO: When dialogue ends !!!!!!!
+
+        // Retrieve the QuizHandler instance
+        QuizHandler quizHandler = FindObjectOfType<QuizHandler>();
+        if (quizHandler != null)
+        {
+            // Start the quiz mode
+            quizHandler.StartQuizMode(gameObject.name);
+
+        }
+
+
     }
 }
+

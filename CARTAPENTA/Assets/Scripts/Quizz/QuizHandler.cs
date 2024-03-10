@@ -23,7 +23,8 @@ public class QuizHandler : MonoBehaviour
     private void Awake()
     {
         //subscribe to an event
-        NPC.OnDialogueEnded += StartQuizMode;
+        //NPC.OnDialogueEnded += StartQuizMode;
+
     }
 
     private void Start()
@@ -36,18 +37,21 @@ public class QuizHandler : MonoBehaviour
         }
 
         //test
-        //StartQuizMode("NPC1");
+        //StartQuizMode(NPC.currentNPC.name);
         
     }
 
     private void OnDestroy()
     {
-        NPC.OnDialogueEnded -= StartQuizMode;
+        //NPC.OnDialogueEnded -= StartQuizMode;
         //maybe removelistener from buttons ?
     }
 
-    void StartQuizMode(string npc)
+    public void StartQuizMode(string npc)
     {
+        this.panel.SetActive(true);
+        PlayerStateManager player = PlayerStateManager.Instance;
+        player.SwitchState(player.listeningState);
         this.whichNPC = npc;
         print(this.textPanel == null);
         this.textPanel.GetComponent<TextMeshProUGUI>().text = baseTextList[0];
@@ -64,10 +68,20 @@ public class QuizHandler : MonoBehaviour
     //called by onClick of each buttons
     public void CheckAnswer(GameObject target, int buttonIndex)
     {
+        // Access the current NPC GameObject
+        GameObject currentNPC = NPC.currentNPC;
+
         if (GameManager.Instance.allQuizQuestions[this.whichNPC][buttonIndex].isCorrectAnswer)
         {
             //animate, kill quiz mode
-            EndQuizMode();
+            if (currentNPC != null)
+            {
+                NPC npcScript = currentNPC.GetComponent<NPC>();
+                if (npcScript != null && npcScript.checkMark != null)
+                {
+                    EndQuizMode(npcScript.checkMark);
+                }
+            }
         }
         else
         {
@@ -77,15 +91,18 @@ public class QuizHandler : MonoBehaviour
         }
     }
 
-    void EndQuizMode()
+
+    public void EndQuizMode(GameObject checkMark)
     {
         this.panel.SetActive(false);
-        foreach(GameObject button in buttonList)
+        foreach (GameObject button in buttonList)
         {
             button.SetActive(false);
         }
-
+        if (checkMark != null)
+            checkMark.SetActive(true);
         //get player out of locked mode here. (out of listening state through event)
         OnQuizEnded?.Invoke();
     }
+
 }
