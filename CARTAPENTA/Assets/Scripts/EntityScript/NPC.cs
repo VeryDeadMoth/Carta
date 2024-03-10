@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -185,16 +186,26 @@ public class NPC : MonoBehaviour
         currentNPCSequenceIndex = 0;
         currentPlayerSequenceIndex = 0;
         currentDialogueIndex = 0;
-
-        // Retrieve the QuizHandler instance
-        QuizHandler quizHandler = FindObjectOfType<QuizHandler>();
-        if (quizHandler != null)
+        if (currentNPC.name == "NPC0")
         {
-            // Start the quiz mode
-            quizHandler.StartQuizMode(gameObject.name);
+            if (checkMark != null)
+                checkMark.SetActive(true);
+            SceneManager.LoadScene("Game");
 
         }
+        else
+        {
+            // Retrieve the QuizHandler instance
 
+            QuizHandler quizHandler = FindObjectOfType<QuizHandler>();
+            if (quizHandler != null)
+            {
+                // Start the quiz mode
+                quizHandler.StartQuizMode(gameObject.name);
+
+            }
+
+        }
 
     }
 }

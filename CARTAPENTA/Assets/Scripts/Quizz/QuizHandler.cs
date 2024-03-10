@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -107,6 +108,11 @@ public class QuizHandler : MonoBehaviour
         if (cloudEffect != null)
         {
             cloudEffect.RemoveCloud();
+        }
+        if(whichNPC == "NPC4")
+        {
+            SceneManager.LoadScene("TracageTrait");
+
         }
     }
 
