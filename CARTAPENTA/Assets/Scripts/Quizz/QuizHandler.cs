@@ -20,15 +20,13 @@ public class QuizHandler : MonoBehaviour
 
     [SerializeField] private CloudEffect cloudEffect;
 
+    public delegate void QuizIntEvent(int i);
     public delegate void QuizEvent();
-    public static event QuizEvent OnQuizEnded;
+    public static event QuizIntEvent OnQuizEnded;
+    public static event QuizEvent OnQuizStarted;
 
-    private void Awake()
-    {
-        //subscribe to an event
-        //NPC.OnDialogueEnded += StartQuizMode;
+    int numberOfError;
 
-    }
 
     private void Start()
     {
@@ -44,17 +42,11 @@ public class QuizHandler : MonoBehaviour
         
     }
 
-    private void OnDestroy()
-    {
-        //NPC.OnDialogueEnded -= StartQuizMode;
-        //maybe removelistener from buttons ?
-    }
-
     public void StartQuizMode(string npc)
     {
         this.panel.SetActive(true);
         this.whichNPC = npc;
-        print(this.textPanel == null);
+        this.numberOfError = 0;
         this.textPanel.GetComponent<TextMeshProUGUI>().text = baseTextList[0];
 
         this.panel.SetActive(true);
@@ -64,6 +56,7 @@ public class QuizHandler : MonoBehaviour
             buttonList[i].GetComponent<Button>().interactable = true;
             buttonList[i].SetActive(true);
         }
+        OnQuizStarted?.Invoke();
     }
 
     //called by onClick of each buttons
@@ -88,6 +81,7 @@ public class QuizHandler : MonoBehaviour
         {
             //turn red, animate, make it impossible to click again
             target.GetComponent<Button>().interactable = false;
+            this.numberOfError++;
             this.textPanel.GetComponent<TextMeshProUGUI>().text = baseTextList[Random.Range(1, baseTextList.Count)];
         }
     }
@@ -103,7 +97,7 @@ public class QuizHandler : MonoBehaviour
         if (checkMark != null)
             checkMark.SetActive(true);
         //get player out of locked mode here. (out of listening state through event)
-        OnQuizEnded?.Invoke();
+        OnQuizEnded?.Invoke(this.numberOfError);
 
         if (cloudEffect != null)
         {
@@ -111,7 +105,7 @@ public class QuizHandler : MonoBehaviour
         }
         if(whichNPC == "NPC4")
         {
-            SceneManager.LoadScene("TracageTrait");
+            GameManager.Instance.LoadNewScene("TracageTrait");
 
         }
     }
