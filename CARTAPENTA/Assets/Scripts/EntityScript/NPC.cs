@@ -194,7 +194,7 @@ public class NPC : MonoBehaviour
         {
             if (checkMark != null)
                 checkMark.SetActive(true);
-            SceneManager.LoadScene("Game");
+            GameManager.Instance.LoadNewScene("Game");
 
         }
         else

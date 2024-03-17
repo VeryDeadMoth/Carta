@@ -18,6 +18,9 @@ public class drawManager : MonoBehaviour
     private float timeChrono;
     public List<GameObject> ObjectChecked { get; set; }
 
+    public delegate void DrawEvent(int i);
+    public static event DrawEvent OnDraw;
+
     private void Start()
     {
         isInPlace = false;
@@ -71,6 +74,7 @@ public class drawManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             percentage = numberCollider*100/ listGoodPlacement.transform.childCount;
+            OnDraw?.Invoke(percentage);
             ObjectChecked.Clear();
             if(isInPlace)
             {
