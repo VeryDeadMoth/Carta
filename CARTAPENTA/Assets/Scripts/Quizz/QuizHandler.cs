@@ -19,6 +19,7 @@ public class QuizHandler : MonoBehaviour
     string whichNPC; //set from event
 
     [SerializeField] private CloudEffect cloudEffect;
+    [SerializeField] private Camera _Cameraplayer;
 
     public delegate void QuizIntEvent(int i);
     public delegate void QuizEvent();
@@ -99,6 +100,13 @@ public class QuizHandler : MonoBehaviour
         //get player out of locked mode here. (out of listening state through event)
         OnQuizEnded?.Invoke(this.numberOfError);
 
+/*        if (_Cameraplayer != null)
+        {
+            Vector3 CameraDirection = _Cameraplayer.transform.parent.position * (-1);
+            CameraDirection.z = -10;
+            CameraTransition C1 = new CameraTransition(_Cameraplayer);
+            StartCoroutine(C1.CamMovementToCenter(CameraDirection, 15f, 2f, 0.5f));
+        }*/
         if (cloudEffect != null)
         {
             cloudEffect.RemoveCloud();
