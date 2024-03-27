@@ -100,18 +100,18 @@ public class QuizHandler : MonoBehaviour
         //get player out of locked mode here. (out of listening state through event)
         OnQuizEnded?.Invoke(this.numberOfError);
 
-/*        if (_Cameraplayer != null)
+        if (_Cameraplayer != null)
         {
+            
             Vector3 CameraDirection = _Cameraplayer.transform.parent.position * (-1);
+            CameraDirection.x *= _Cameraplayer.transform.localScale.x;
+            CameraDirection.y *= _Cameraplayer.transform.localScale.y;
             CameraDirection.z = -10;
-            CameraTransition C1 = new CameraTransition(_Cameraplayer);
+            CameraTransition C1 = new CameraTransition(_Cameraplayer,cloudEffect);
             StartCoroutine(C1.CamMovementToCenter(CameraDirection, 15f, 2f, 0.5f));
-        }*/
-        if (cloudEffect != null)
-        {
-            cloudEffect.RemoveCloud();
         }
-        if(whichNPC == "NPC4")
+
+        if (whichNPC == "NPC4")
         {
             GameManager.Instance.LoadNewScene("TracageTrait");
 

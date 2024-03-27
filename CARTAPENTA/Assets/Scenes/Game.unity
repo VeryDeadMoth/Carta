@@ -700,7 +700,7 @@ Transform:
   m_GameObject: {fileID: 259179928}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6662613, y: -0.166601, z: 4.0592885}
+  m_LocalPosition: {x: 0, y: 0, z: 4.0592885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1032,11 +1032,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989789527099099026, guid: 12caf9795f0d26d4ca0e9ae9917c6d7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.69
+      value: -15.9
       objectReference: {fileID: 0}
     - target: {fileID: 7989789527099099026, guid: 12caf9795f0d26d4ca0e9ae9917c6d7e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.53
+      value: -9.8
       objectReference: {fileID: 0}
     - target: {fileID: 7989789527099099026, guid: 12caf9795f0d26d4ca0e9ae9917c6d7e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1289,11 +1289,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: f473abba7d68ca842b4728d923349783, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.1
+      value: 5.7855
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: f473abba7d68ca842b4728d923349783, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.1
+      value: -13.4284
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: f473abba7d68ca842b4728d923349783, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1778,6 +1778,7 @@ MonoBehaviour:
   - {fileID: 2027838790}
   textPanel: {fileID: 1562889081}
   cloudEffect: {fileID: 1383072053}
+  _Cameraplayer: {fileID: 0}
 --- !u!4 &530813627
 Transform:
   m_ObjectHideFlags: 0
@@ -1801,71 +1802,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: m_Size.x
-      value: 1.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: m_Size.y
-      value: 5.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: m_Offset.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: wordSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: contButton
-      value: 
-      objectReference: {fileID: 518352743}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: dialogueText
-      value: 
-      objectReference: {fileID: 333100106}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: dialoguePanel
-      value: 
-      objectReference: {fileID: 1627906215}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: dialogue.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: dialogue.Array.data[0]
-      value: "J\u2019ai une mission pour vous : Je vous envoie en tant que g\xE9om\xE8tre
-        pour r\xE9gler une querelle."
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: dialogue.Array.data[1]
-      value: "Messire Amblard de Polhan, seigneur de Puygouzon a des probl\xE8mes
-        territoriaux avec Monseigneur l\u2019\xE9v\xEAque d\u2019Albi, G\xE9raud
-        II."
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: dialogue.Array.data[2]
-      value: "Transportez-vous au ch\xE2teau de Puygouzon, il vous expliquera ce
-        qu\u2019il s\u2019y passe."
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: dialogue.Array.data[3]
-      value: " L\u2019objectif est de r\xE9gler la r\xE9partition des terres entre
-        lesdits seigneurs, vous trouverez des indices sur votre chemin qui vous aideront."
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
-      propertyPath: dialogue.Array.data[4]
-      value: " Allez, je vous fais enti\xE8rement confiance pour cette mission ! "
-      objectReference: {fileID: 0}
     - target: {fileID: 1981006981437533473, guid: eea98242f84575a498bde92a9a709606, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -1904,11 +1840,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: eea98242f84575a498bde92a9a709606, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40.4855
+      value: -28.6
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: eea98242f84575a498bde92a9a709606, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.6284
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: eea98242f84575a498bde92a9a709606, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1993,6 +1929,71 @@ PrefabInstance:
     - target: {fileID: 9196470622206137781, guid: eea98242f84575a498bde92a9a709606, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_Size.x
+      value: 1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_Size.y
+      value: 5.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_Offset.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: wordSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: contButton
+      value: 
+      objectReference: {fileID: 518352743}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 333100106}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: dialoguePanel
+      value: 
+      objectReference: {fileID: 1627906215}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: "J\u2019ai une mission pour vous : Je vous envoie en tant que g\xE9om\xE8tre
+        pour r\xE9gler une querelle."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: "Messire Amblard de Polhan, seigneur de Puygouzon a des probl\xE8mes
+        territoriaux avec Monseigneur l\u2019\xE9v\xEAque d\u2019Albi, G\xE9raud
+        II."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: "Transportez-vous au ch\xE2teau de Puygouzon, il vous expliquera ce
+        qu\u2019il s\u2019y passe."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: " L\u2019objectif est de r\xE9gler la r\xE9partition des terres entre
+        lesdits seigneurs, vous trouverez des indices sur votre chemin qui vous aideront."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487443889528940618, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
+      propertyPath: dialogue.Array.data[4]
+      value: " Allez, je vous fais enti\xE8rement confiance pour cette mission ! "
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4664198478666641236, guid: 8695ad97e9ae37a4497a602412bd12c8, type: 3}
@@ -2856,7 +2857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 568.678, z: -2561.285}
   m_AnchorMin: {x: 0.43, y: 0.5}
   m_AnchorMax: {x: 0.44, y: 0.5}
-  m_AnchoredPosition: {x: 12.799328, y: 25.2}
+  m_AnchoredPosition: {x: 12.799324, y: 25.2}
   m_SizeDelta: {x: 35.299664, y: 2.3526}
   m_Pivot: {x: 0.4842678, y: 0.4229087}
 --- !u!114 &696179109
@@ -2935,11 +2936,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: cefb087894c30314592dedae39be2454, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.9
+      value: -2.0144997
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: cefb087894c30314592dedae39be2454, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23
+      value: 17.6716
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: cefb087894c30314592dedae39be2454, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4988,7 +4989,7 @@ Transform:
   m_GameObject: {fileID: 1290919882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.251739, y: 5.7390013, z: -4.436261}
+  m_LocalPosition: {x: 0, y: 0, z: -4.436261}
   m_LocalScale: {x: 3.5829864, y: 3.0246313, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5558,7 +5559,7 @@ Transform:
   m_GameObject: {fileID: 1383072052}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.9, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6224,7 +6225,7 @@ Transform:
   m_GameObject: {fileID: 1560036830}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.973739, y: 5.106601, z: -4.0592885}
+  m_LocalPosition: {x: 0, y: 0, z: -4.0592885}
   m_LocalScale: {x: 4.49, y: 3.87, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6574,11 +6575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: a4746519431d5984788ac501328ca4cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5
+      value: 16.3855
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: a4746519431d5984788ac501328ca4cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.4
+      value: -0.92839956
       objectReference: {fileID: 0}
     - target: {fileID: 7532124885394777006, guid: a4746519431d5984788ac501328ca4cb, type: 3}
       propertyPath: m_LocalPosition.z

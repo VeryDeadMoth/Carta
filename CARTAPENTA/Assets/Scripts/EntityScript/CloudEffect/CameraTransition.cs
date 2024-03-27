@@ -7,10 +7,19 @@ public class CameraTransition
     private Camera _Camera;
     private float SizeCameraInit;
     private Vector3 PositionInit;
+    private CloudEffect _CloudEffect;
 
     public CameraTransition(Camera cam)
     {
         this._Camera = cam;
+        this.SizeCameraInit = _Camera.orthographicSize;
+        this.PositionInit = _Camera.transform.localPosition;
+    }
+
+    public CameraTransition(Camera cam, CloudEffect cloudEffect)
+    {
+        this._Camera = cam;
+        this._CloudEffect = cloudEffect;
         this.SizeCameraInit = _Camera.orthographicSize;
         this.PositionInit = _Camera.transform.localPosition;
     }
@@ -47,6 +56,7 @@ public class CameraTransition
         //if camera isn't back at original position, then redo the coroutine with its original position as destination. Else, end of Coroutine, we can move again.
         if (Vector2.Distance(CameraPosition, PositionInit) > 0.1)
         {
+            if(_CloudEffect!=null) _CloudEffect.RemoveCloud();
             yield return new WaitForSeconds(attenteCam);
             yield return CamMovementToCenter(PositionInit, SizeCameraInit, attenteCam, vitesseCam);
         }
