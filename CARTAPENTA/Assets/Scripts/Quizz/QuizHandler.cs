@@ -108,7 +108,7 @@ public class QuizHandler : MonoBehaviour
             CameraDirection.y *= _Cameraplayer.transform.localScale.y;
             CameraDirection.z = -10;
             CameraTransition C1 = new CameraTransition(_Cameraplayer,cloudEffect);
-            StartCoroutine(C1.CamMovementToCenter(CameraDirection, 15f, 2f, 0.5f));
+            StartCoroutine(C1.CamMovementToCenter(CameraDirection, 20f, 2f, 0.3f));
         }
 
         if (whichNPC == "NPC4")
