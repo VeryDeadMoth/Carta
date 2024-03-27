@@ -700,7 +700,7 @@ Transform:
   m_GameObject: {fileID: 259179928}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.0592885}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1778,7 +1778,7 @@ MonoBehaviour:
   - {fileID: 2027838790}
   textPanel: {fileID: 1562889081}
   cloudEffect: {fileID: 1383072053}
-  _Cameraplayer: {fileID: 0}
+  _Cameraplayer: {fileID: 622764003}
 --- !u!4 &530813627
 Transform:
   m_ObjectHideFlags: 0
@@ -2857,7 +2857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 568.678, z: -2561.285}
   m_AnchorMin: {x: 0.43, y: 0.5}
   m_AnchorMax: {x: 0.44, y: 0.5}
-  m_AnchoredPosition: {x: 12.799324, y: 25.2}
+  m_AnchoredPosition: {x: 12.799318, y: 25.2}
   m_SizeDelta: {x: 35.299664, y: 2.3526}
   m_Pivot: {x: 0.4842678, y: 0.4229087}
 --- !u!114 &696179109
@@ -4989,7 +4989,7 @@ Transform:
   m_GameObject: {fileID: 1290919882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.436261}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.5829864, y: 3.0246313, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6225,7 +6225,7 @@ Transform:
   m_GameObject: {fileID: 1560036830}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.0592885}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.49, y: 3.87, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
